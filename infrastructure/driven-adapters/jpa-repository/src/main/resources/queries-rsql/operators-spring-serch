@@ -1,0 +1,5 @@
+search=cellphone:6900085000
+search=registerStatus.id:200
+search=registerStatus.id:200 AND type:ironmonger
+search=lastModifiedAt>'2023-02-10T00:00:00' AND lastModifiedAt<'2023-02-15T23:59'
+search=(status:'authorized') AND type:'warehouse' AND (logisticStatus:'pending') AND warehouseUuid:'cca7a399-0391-48cd-9554-ca72205474f6' AND schedule>'2023-02-16T00:00' AND schedule<'2023-02-17T23:59'

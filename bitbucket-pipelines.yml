@@ -1,0 +1,33 @@
+image: gradle:7.5-jdk17
+
+clone:
+  depth: full
+
+definitions:
+  caches:
+    sonar: ~/.sonar/cache
+  services:
+    docker:
+      memory: 2048
+  steps:
+    - step: &Lint
+        name: Lint and Compile
+        caches:
+          - gradle
+        script:
+          - gradle clean ktlintCheck compileKotlin --info
+        artifacts:
+          - build/**
+
+
+pipelines:
+  branches:
+    develop:
+      - step: *Lint
+      - step: *Test
+    release/*:
+      - step: *Lint
+      - step: *Test
+    master:
+      - step: *Lint
+      - step: *Test
